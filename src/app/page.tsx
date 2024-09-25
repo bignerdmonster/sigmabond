@@ -4,7 +4,7 @@ import { db } from "~/server/db";
 export default async function HomePage() {
   const tutorials = await db.query.tutorials.findMany();
   return (
-    <main>
+    <main className="">
       <body className="justify-center">
         {tutorials.map((step) =>(
           <div className="w-4/5 mx-auto py-2 flex flex-auto flex-wrap gap-2">
@@ -16,7 +16,7 @@ export default async function HomePage() {
               <p>{step.how}</p>
             </article>
           </div>
-      ))}
+          ))}
       </body>
     </main>
   );
