@@ -2,11 +2,11 @@ import Link from "next/link";
 import { db } from "~/server/db";
 
 export default async function HomePage() {
-  const tutorials = await db.query.tutorials.findMany();
+  const steps = await db.query.steps.findMany();
   return (
     <main className="">
       <body className="justify-center">
-        {tutorials.map((step) =>(
+        {steps.map((step) =>(
           <div className="w-4/5 mx-auto py-2 flex flex-auto flex-wrap gap-2">
             <article key=1 className="prose">
               <h2>Step {step.num}: <b>{step.name}</b></h2>
