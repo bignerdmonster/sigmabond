@@ -18,11 +18,14 @@ import {
  */
 export const createTable = pgTableCreator((name) => `sigmabond_${name}`);
 
-export const posts = createTable(
-  "post",
+export const steps = createTable(
+  "step",
   {
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }),
+    num: smallint("num").notNull(),
+    why: varchar("why", {length: 512}).notNull(),
+    how: varchar("how", {length: 2048}).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
