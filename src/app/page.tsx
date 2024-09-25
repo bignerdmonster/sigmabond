@@ -4,7 +4,7 @@ import { db } from "~/server/db";
 export default async function HomePage() {
   const steps = await db.query.steps.findMany();
   return (
-    <main className="">
+    <main className="" >
       <body className="justify-center">
         {steps.map((step) =>(
           <div className="w-4/5 mx-auto py-2 flex flex-auto flex-wrap gap-2">
