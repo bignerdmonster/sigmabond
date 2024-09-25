@@ -9,7 +9,7 @@ export default async function HomePage() {
         {tutorials.map((step) =>(
           <div className="w-4/5 mx-auto py-2 flex flex-auto flex-wrap gap-2">
             <article key=1 className="prose">
-              <h2>Step <b>{step.num}</b></h2>
+              <h2>Step {step.num}: <b>{step.name}</b></h2>
               <p>{step.why}</p>
             </article>
             <article key=2 className="prose">
