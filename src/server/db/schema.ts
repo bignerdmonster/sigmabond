@@ -4,6 +4,7 @@
 import { sql } from "drizzle-orm";
 import {
   index,
+  integer,
   pgTableCreator,
   serial,
   timestamp,
@@ -22,8 +23,8 @@ export const steps = createTable(
   "step",
   {
     id: serial("id").primaryKey(),
-    name: varchar("name", { length: 256 }),
-    num: smallint("num").notNull(),
+    name: varchar("name", {length: 256}).notNull(),
+    numer: integer("numer").notNull(),
     why: varchar("why", {length: 512}).notNull(),
     how: varchar("how", {length: 2048}).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true })
@@ -32,8 +33,5 @@ export const steps = createTable(
     updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
       () => new Date()
     ),
-  },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
+  }
 );
